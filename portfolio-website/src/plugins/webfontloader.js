@@ -9,7 +9,7 @@
   
     webFontLoader.load({
       google: {
-        families: ['JetBrains+Mono:100,300,400,500,700,900&display=swap'],
+        families: ['Oswald:100,300,400,500,700,900'],
       },
     })
   }

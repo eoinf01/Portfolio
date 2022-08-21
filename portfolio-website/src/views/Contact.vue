@@ -1,12 +1,12 @@
 <template>
-            <h2 class="section-heading">
+            <h2 class="font-normal border-b-2 border-white my-[10px] text-xl">
            CONTACT ME
           </h2>
 <div class="flex flex-row mt-[60px] w-full justify-between">
-    <div class="w-full">
-        <h3>Get In Touch</h3>
+    <div class="w-full flex items-start justify-center p-[2%] basis-6/12">
+        <h3 class="text-4xl">Get In Touch?</h3>
     </div>
-    <Form id="form" action="https://public.herotofu.com/v1/14cecf90-1351-11ed-a231-a93ebcec281d" method="post" class="contact-form w-full flex flex-col justify-between items-start gap-[15px]" @submit="handleEmail" :validation-schema="emailSchema">
+    <Form id="form" action="https://public.herotofu.com/v1/14cecf90-1351-11ed-a231-a93ebcec281d" method="post" class="contact-form w-full flex flex-col justify-between items-start gap-[15px] basis-6/12" @submit="handleEmail" :validation-schema="emailSchema">
         <Field name="from_name" type="text" v-slot="{field,errorMessage}">
             <input type="text" placeholder="Enter your name" v-bind="field" class="border-b border-slate-400 w-full bg-transparent p-[5px]focus:border-b transition-all duration-300 my-[10px] outline-none focus:border-b focus:border-white"/>
         </Field>

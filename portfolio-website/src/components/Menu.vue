@@ -1,13 +1,21 @@
 <template>
-  <div class="mobile-menu flex fixed w-full flex-row items-end justify-end bg-black h-auto p-[10px] z-50 sm:hidden">
-    <button class="mobile-menu-toggle" id="menu-toggle">
-
+  <div class="flex fixed w-full flex-row items-center justify-end bg-black h-[50px] p-[10px] z-50 sm:hidden">
+    <button class="" id="menu-toggle">
+      <svg v-if="!menuActive" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd"
+          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+          clip-rule="evenodd" />
+      </svg>
+      <svg v-if="menuActive" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
     </button>
   </div>
   <div
-    class="menu after:hidden fixed transition-all z-40 flex flex-col items-center h-screen top-0 w-full bg-black justify-center opacity-100 transition-all ease-in-out duration-300 sm:after:content[''] sm:after:absolute sm:after:h-[2px] sm:after:w-full sm:after:bottom-0 sm:after:bg-gradient-to-r from-cyan-500 to-blue-500 sm:justify-end sm:items-center sm:h-[50px] sm:flex-row sm:opacity-100 sm:translate-x-0 sm:after:block sm:flex"
+    class="after:hidden fixed transition-all z-40 flex flex-col items-center h-screen top-0 w-full bg-black justify-center opacity-100 transition-all ease-in-out duration-300 sm:after:content[''] sm:after:absolute sm:after:h-[2px] sm:after:w-full sm:after:bottom-0 sm:after:bg-gradient-to-r from-cyan-500 to-blue-500 sm:justify-end sm:items-center sm:h-[50px] sm:flex-row sm:opacity-100 sm:translate-x-0 sm:after:block sm:flex"
     id="menu" :class="scrollActive ? 'hide' : '', menuActive ? 'translate-x-0' : 'translate-x-full'">
-    <ul class="flex flex-col list-none gap-[25px] text-slate-200 relative sm:flex-row">
+    <ul class="flex flex-col list-none gap-[25px] text-slate-200 relative sm:flex-row sm:mr-[20px]">
       <li class="flex relative flex-col transition-all duration-1000 hover:text-white">
         <router-link :to="{ name: 'home', hash: '#home' }" class="menu-link">
           <MenuLink heading="HOME" subHeading="Back to paradise" to="home" />
@@ -43,71 +51,33 @@ export default {
     MenuLink,
   },
   data: () => ({
-    text: [
-      "Born in Ireland.",
-      "Studying at MTU.",
-      "A Software Development Student.",
-    ],
-    typedText: " ",
-    index: 0,
-    listIndex: 0,
     scrollActive: false,
     menuActive: false,
-    animationlength: 100,
-    animation: "",
-    transition: "",
-    transform: "",
     lastScrollTop: 0,
   }),
   methods: {
-    typedLoopForward() {
-      if (this.index < this.text[this.listIndex].length) {
-        this.typedText = this.typedText + this.text[this.listIndex][this.index];
-        this.index++;
-        setTimeout(this.typedLoopForward, this.animationlength);
-      } else if (this.listIndex < this.text.length - 1) {
-        this.typedLoopBackwards();
-      } else {
-        this.animation = `fade 500ms ease 5 forwards`;
-        setTimeout(() => {
-          this.transition = "transform 1000ms ease";
-          this.transform = "scaleY(0)";
-        }, 2500);
-      }
-    },
-    typedLoopBackwards() {
-      if (this.index >= 0) {
-        this.index--;
-        this.typedText = this.typedText.slice(0, this.index);
-        setTimeout(this.typedLoopBackwards, 100);
-      } else if (this.index < 0 && this.listIndex < this.text.length) {
-        this.index = 0;
-        this.listIndex++;
-        this.typedLoopForward();
-      }
-    },
+
     activateMenu() {
 
     },
     handleScroll() {
       var scrollTop = document.documentElement.scrollTop;
-      var menuHeight = document.getElementsByClassName('menu')[0].clientHeight;
+      var menuHeight = document.getElementById('menu').clientHeight;
       var w = document.documentElement.clientWidth || window.innerWidth;
-      if(w > 640){
-          if (scrollTop > this.lastScrollTop && scrollTop > menuHeight) {
+      if (w > 640) {
+        if (scrollTop > this.lastScrollTop && scrollTop > menuHeight) {
           this.scrollActive = true;
         } else if (scrollTop < this.lastScrollTop) {
           this.scrollActive = false;
         }
         this.lastScrollTop = scrollTop;
       }
-      else{
+      else {
         this.scrollActive = false;
       }
     },
   },
   mounted() {
-    setTimeout(() => this.typedLoopForward(), 700);
 
     var mobileToggle = document.getElementById('menu-toggle');
     var menu = document.getElementById('menu');
@@ -139,29 +109,11 @@ export default {
 
     window.addEventListener("scroll", this.handleScroll);
   },
-  computed: {
-    typed() {
-      return this.typedText;
-    },
-    // animation(){
-    //   return `textcursoranim 500ms ease ${this.text.length + 2} forwards`;
-    // }
-  },
 };
 </script>
 <style scoped>
 .hide {
   top: -50px;
-}
-
-@media (max-width: 35em) {
-  .mobile-menu-toggle {
-    width: 1em;
-    background-color: white;
-    aspect-ratio: 1;
-    z-index: 1000;
-    margin: 0px 10px;
-  }
 }
 
 
