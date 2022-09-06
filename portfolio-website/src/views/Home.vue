@@ -1,12 +1,9 @@
 <template>
 
-  <div class="flex flex-col grow">
-    <Intro />
+  <div class="flex flex-col grow ">
     <About/>
-    <Projects />
-    <section class="h-screen">
-      <Contact />
-    </section>
+    <Projects ref="projects" />
+      <Contact class=""/>
   </div>
 
 
@@ -45,17 +42,6 @@ export default {
         });
       }
 
-      const fadeCallback = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-
-          }
-          else {
-            entry.target.classList.remove('active')
-          }
-        })
-      }
 
       let option = {
         root: null,
@@ -66,18 +52,12 @@ export default {
       document.querySelectorAll('section').forEach(element => {
         this.sectionObserver.observe(element)
       });
-      console.log(this.sectionObserver)
-
-      this.observer = new IntersectionObserver(fadeCallback, { root: document.body, threshold: 0.4, rootMargin: "0px 0px -50px 0px" });
-      document.querySelectorAll('.fade-in').forEach((element) => {
-        this.observer.observe(element);
-      })
     }
 
   },
 
   mounted() {
-    this.intersectCallback();
+   this.intersectCallback();
   },
   computed: {
     ...mapStores(useActiveSectionStore),
@@ -90,9 +70,6 @@ export default {
 }
 
 
-section {
-  margin-top: 20px;
-}
 
 p {
   color: #c4c4c4;
@@ -130,58 +107,11 @@ h1 {
   font-size: 7em;
 }
 
-.menu-button {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  right: 0px;
-  font-size: 2em;
-  color: rgb(178, 178, 178);
-  border-radius: 10px;
-  border: 1px solid rgb(113, 113, 113);
-}
-
-.menu-button.active {
-  right: 0;
-}
-
-
-.section-header {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-
-li:hover {
-  color: rgb(209, 209, 209);
-}
-
-.fade-in {
-  transform: translateY(50%);
-  opacity: 0;
-  transition: all 500mw ease-in;
-}
-
-.fade-in.active {
-  transform: translateY(0);
-  opacity: 1;
-}
 
 
 
-@media (max-width: 35em) {
 
-  h1 {
-    font-size: 4em;
-  }
 
-  .project-section {
-
-    flex-wrap: wrap;
-  }
-
-}
 
 @keyframes textcursoranim {
   from {
