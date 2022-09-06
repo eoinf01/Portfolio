@@ -113,7 +113,10 @@ export default {
 
         var tl1 = gsap.timeline(
             {
-                scrollTrigger: '#right-about'
+                scrollTrigger: {
+                    trigger: '#right-about',
+                    normalize: true
+                }
             }
         )
         tl1.from('#right-about',{duration:0.5,opacity:0,scale:0,ease:'power2.out()'})
@@ -122,7 +125,10 @@ export default {
         
         var tl2 = gsap.timeline(
             {
-                scrollTrigger: '#left-about'
+                scrollTrigger: {
+                    trigger: '#left-about',
+                    normalize: true,
+                }
             }
         )
         var leftContent = gsap.utils.toArray('#left-content')
