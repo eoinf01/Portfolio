@@ -3,7 +3,8 @@
   <div class="flex flex-col grow ">
     <About/>
     <Projects ref="projects" />
-      <Contact class=""/>
+    <Contact/>
+    <Footer/>
   </div>
 
 
@@ -16,6 +17,7 @@ import Contact from './Contact.vue';
 import Projects from './Projects.vue';
 import Intro from './Intro.vue';
 import About from './About.vue';
+import Footer from './Footer.vue';
 export default {
   name: 'home-page',
 
@@ -24,7 +26,8 @@ export default {
     Projects,
     Intro,
     About,
-    About
+    About,
+    Footer
 },
   data: () => ({
     sectionObserver: null,
