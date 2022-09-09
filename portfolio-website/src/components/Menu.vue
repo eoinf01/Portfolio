@@ -22,7 +22,7 @@
     </button>
   </div>
   <div
-    class=" after:hidden fixed transition-all z-40 flex flex-col h-screen items-center top-0 w-full  bg-white dark:bg-[#030303] justify-center opacity-100 transition-all ease-in-out duration-300  sm:justify-between sm:items-center sm:h-auto sm:backdrop-blur sm:flex-row sm:opacity-100 sm:translate-x-0 sm:after:block sm:flex sm:fixed"
+    class=" backdrop after:hidden fixed transition-all z-40 flex flex-col h-screen items-center top-0 w-full justify-center opacity-100 transition-all ease-in-out duration-300  sm:justify-between sm:h-auto sm:backdrop-blur sm:flex-row sm:opacity-100 sm:translate-x-0 sm:flex sm:fixed shadow-lg"
     id="menu" :class="scrollActive ? 'hide' : '', menuActive ? 'translate-x-0' : 'translate-x-full'">
     <svg viewBox="0 0 248 31" class="hidden text-slate-900 dark:text-white w-auto h-5 sm:flex">
       <path fill-rule="evenodd" clip-rule="evenodd"
@@ -35,22 +35,22 @@
     <ul class="flex flex-col list-none gap-[25px] text-slate-200 sm:flex-row sm:mr-[20px] my-[10px]">
       <li class="flex relative flex-col transition-all duration-1000 hover:text-white">
         <router-link :to="{ name: 'home', hash: '#home' }" class="menu-link">
-          <MenuLink heading="HOME" subHeading="Back to paradise" to="home" />
+          <MenuLink heading="Home" subHeading="Back to paradise" to="home" />
         </router-link>
       </li>
       <li class="flex relative flex-col transition-all duration-1000">
         <router-link :to="{ name: 'home', hash: '#about' }" class="menu-link">
-          <MenuLink heading="ABOUT ME" subHeading="Learn about my boring life" to="about" />
+          <MenuLink heading="About Me" subHeading="Learn about my boring life" to="about" />
         </router-link>
       </li>
       <li class="flex relative flex-col transition-all duration-1000">
         <router-link :to="{ name: 'home', hash: '#projects' }" class="menu-link">
-          <MenuLink heading="PROJECTS" subHeading="Check out all my projects" to="projects" />
+          <MenuLink heading="Projects" subHeading="Check out all my projects" to="projects" />
         </router-link>
       </li>
       <li class="flex relative flex-col transition-all duration-1000">
         <router-link :to="{ home: 'home', hash: '#contact' }" class="menu-link">
-          <MenuLink heading="CONTACT ME" sub-heading="Write me a letter" to="/contact" />
+          <MenuLink heading="Contact Me" sub-heading="Write me a letter" to="contact" />
         </router-link>
       </li>
     </ul>
@@ -131,6 +131,12 @@ export default {
 <style scoped>
 .hide {
   top: -50px;
+}
+.backdrop{
+  background-color: rgba(0,0,0,0.8);
+  
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 
