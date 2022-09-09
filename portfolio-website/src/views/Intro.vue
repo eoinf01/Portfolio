@@ -4,17 +4,17 @@
         
             <div class="intro-item">
         
-                <h1 class=" relative text-5xl sm:text-6xl md:text-8xl text-black dark:text-white font-extralight" ref="intro">Hello,<br />I'm <span
+                <h1 class=" relative text-5xl sm:text-6xl md:text-9xl text-black dark:text-white font-extralight" ref="intro">Hello,<br />I'm <span
                         class=" heading-text font-bold">Eoin Fehily.</span></h1>
                 <h3
-                    id="subIntro" class=" text-black dark:text-white opacity-0 sub-text text-lg after:content-[''] after:bg-white after:absolute after:top-0 after:bottom-0 after:w-0.5 after:right-0">
+                    id="subIntro" class=" text-black dark:text-white opacity-0 sub-text text-xl after:content-[''] after:bg-white after:absolute after:top-0 after:bottom-0 after:w-0.5 after:right-0">
                     &nbsp;{{ typedText }}</h3>
             </div>
             <div class=" gradient absolute top-[30%] bottom-0 left-[35%] h-[45%] w-[35%]"/>
             <div class="flex flex-row opacity-0" id="button">
                 <button
                     class="bg-white text-black px-[15px] py-[10px] flex flex-row relative justify-center items-center cursor-pointer transition-all rounded-md ml-[5px] gap-[5px] before:content-[''] before:absolute before:top-[0px] before:bottom-[0px] before:left-[0px] before:right-[0px] before:bg-gradient-to-r before:from-cyan-500 before:to-blue-500 before:transition-all before:rounded-md after:content-[''] after:absolute after:bg-black after:top-[1px] after:bottom-[1px] after:left-[1px] after:right-[1px] after:rounded-md hover:after:bottom-[2px] hover:after:right-[2px] hover:after:left-[2px] hover:after:top-[2px] after:transition-all hover:after:bg-[#212121]">
-                    <p class="text-white mix-blend-difference z-[2]">Resume</p><svg class=" z-[2] text-color"
+                    <p class="text-white mix-blend-difference z-[2] text-lg">Resume</p><svg class=" z-[2] text-color"
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         viewBox="0 0 16 16">
                         <path
@@ -83,11 +83,29 @@ export default {
         },
     },
      mounted(){
-            let timeline = gsap.timeline();
+            let timeline = gsap.timeline({});
+            gsap.to('#scroll',{opacity: 1,duration:1})
             timeline.from(this.$refs.intro,{y:-60,opacity: 0,duration:1})
             .to('#subIntro',{opacity:1,duration: 0.5,onComplete:this.typedLoopForward})
-            .to('#button',{opacity: 1,duration:1,y:0},'-=0.35');
-            gsap.to('#scroll',{opacity:1,duration:2})
+            .to('#button',{opacity: 1,duration:1,y:0},'-=0.35')
+            
+
+            let fadeOut = gsap.timeline(
+                {
+            
+                    scrollTrigger: {
+                        trigger: '#home',
+                        start: '60%',
+                        end: 'bottom',
+                        
+    
+                    },
+                    defaults:{
+                        overwrite: "auto"
+                    }
+                }
+            )
+            fadeOut.to('#scroll',{opacity:0,duration:1,})
         }
 }</script>
 <style>

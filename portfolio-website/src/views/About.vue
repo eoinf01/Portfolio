@@ -3,9 +3,9 @@
         <h2
             class="font-bold relative text-6xl text-center after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:right-0 after:m-auto after:w-[60px] after:h-[6px] after:bg-white after:rounded-md">
             About Me.</h2>
-        <div class="flex flex-col mt-[30px] gap-10 px-[3%] sm:px-[10%] sm:flex-row bg-[#1f299c] py-[5%]" id="about">
+        <div class="flex flex-col mt-[30px] gap-10 px-[3%] sm:px-[10%] sm:flex-row bg-[#0059dd] py-[5%]" id="about">
             <div id="left-about"
-                class="basis-full sm:basis-6/12 flex items-center flex-col justify-start bg-white rounded-md shadow-md shadow-[#3944c4] ">
+                class="basis-full sm:basis-6/12 flex items-center flex-col justify-start bg-white rounded-md shadow-md shadow-[#3944c4] scale-0">
                 <div class="flex h-full relative basis-3/12 mt-[30px]">
                     <img class="object-cover w-[195px] h-[195px] rounded-full border-2 border-sky-500 scale-0"
                         src="../assets/IMG_0439.png" id="profile-pic"/>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex basis-6/12  rounded-md shadow-lg p-[4%] bg-white flex-col gap-5 justify-between shadow-md shadow-[#3944c4]" id="right-about">
+            <div class="flex basis-6/12  rounded-md shadow-lg p-[4%] bg-white flex-col gap-5 justify-between shadow-md shadow-[#3944c4] scale-0" id="right-about">
                 <div class="flex flex-col w-full gap-2 items-center relative">
                     <h2 class="text-xl text-black opacity-0" id="titles">Education</h2>
                     <div
@@ -115,11 +115,13 @@ export default {
             {
                 scrollTrigger: {
                     trigger: '#right-about',
-                    normalize: true
+                    
+                    normalize: true,
+                   
                 }
             }
         )
-        tl1.from('#right-about',{duration:0.5,opacity:0,scale:0,ease:'power2.out()'})
+        tl1.to('#right-about',{duration:0.5,opacity:1,scale:1,ease:'power2.out()'})
         .to(titles,{opacity:1})
         .to(containers,{opacity:1,stagger: 0.3})
         
@@ -132,7 +134,7 @@ export default {
             }
         )
         var leftContent = gsap.utils.toArray('#left-content')
-        tl2.from('#left-about',{duration: 0.5,opacity:0,scale: 0,ease:'power2.out()'})
+        tl2.to('#left-about',{duration: 0.5,opacity:1,scale: 1,ease:'power2.out()'})
         .to('#profile-pic',{scale: 1,duration: 0.5,ease:'back.out(1.7)'})
         .to(leftContent,{opacity:1},)
         
