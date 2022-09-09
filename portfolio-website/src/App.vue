@@ -9,7 +9,7 @@
         <Home />
       </div>
       <aside id="socials"
-        class="before:hidden before:bg-black dark:before:bg-white socials-container flex flex-row sm:fixed sm:w-[10%] sm:flex-col sm:left-0 items-center justify-center sm:h-full sm:basis-[10%] lg:flex sm:before:flex">
+        class="before:hidden before:bg-black hidden dark:before:bg-white socials-container flex flex-row sm:fixed sm:w-[10%] sm:flex-col sm:flex sm:left-0 items-center justify-center sm:h-full sm:basis-[10%] lg:flex sm:before:flex">
         <h2
           class="hidden font-bold text-transparent text-stroke absolute text-2xl text-center ml-[-30px] bottom-[10%] opacity-[75%] rotate-[-90deg] leading-none text-black sm:flex">
           socials.</h2>
