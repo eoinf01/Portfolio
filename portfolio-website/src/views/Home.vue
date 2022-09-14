@@ -1,25 +1,22 @@
 <template>
-
-  <div class="flex flex-col grow ">
-    <About/>
+  <div class="flex flex-col grow">
+    <About />
     <Projects ref="projects" />
-    <Contact/>
-    <Footer/>
+    <Contact />
+    <Footer />
   </div>
-
-
 </template>
 
 <script>
-import { mapStores } from 'pinia';
-import { useActiveSectionStore } from '../stores/section';
-import Contact from './Contact.vue';
-import Projects from './Projects.vue';
-import Intro from './Intro.vue';
-import About from './About.vue';
-import Footer from './Footer.vue';
+import { mapStores } from "pinia";
+import { useActiveSectionStore } from "../stores/section";
+import Contact from "./Contact.vue";
+import Projects from "./Projects.vue";
+import Intro from "./Intro.vue";
+import About from "./About.vue";
+import Footer from "./Footer.vue";
 export default {
-  name: 'home-page',
+  name: "home-page",
 
   components: {
     Contact,
@@ -27,52 +24,47 @@ export default {
     Intro,
     About,
     About,
-    Footer
-},
+    Footer,
+  },
   data: () => ({
     sectionObserver: null,
     observer: null,
-    isActive: false
+    isActive: false,
   }),
   methods: {
     intersectCallback() {
-
       const sectionCallback = (entries) => {
         entries.forEach((element) => {
           if (element.isIntersecting) {
             this.sectionStore.section = element.target.id;
           }
         });
-      }
-
+      };
 
       let option = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.25
-      }
+        rootMargin: "0px",
+        threshold: 0.25,
+      };
       this.sectionObserver = new IntersectionObserver(sectionCallback, option);
-      document.querySelectorAll('section').forEach(element => {
-        this.sectionObserver.observe(element)
+      document.querySelectorAll("section").forEach((element) => {
+        this.sectionObserver.observe(element);
       });
-    }
-
+    },
   },
 
   mounted() {
-   this.intersectCallback();
+    this.intersectCallback();
   },
   computed: {
     ...mapStores(useActiveSectionStore),
-  }
-}
+  },
+};
 </script>
 <style>
 * {
   font-family: "JetBrains Mono", sans-serif;
 }
-
-
 
 p {
   color: #c4c4c4;
@@ -102,19 +94,12 @@ h3 {
   padding: 0px 4px 0px 0px;
   width: max-content;
   color: white;
-
 }
 
 h1 {
   margin-top: -15px;
   font-size: 7em;
 }
-
-
-
-
-
-
 
 @keyframes textcursoranim {
   from {

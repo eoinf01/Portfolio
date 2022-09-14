@@ -1,6 +1,11 @@
 <template>
-  <div class="before:transition-all before:content=[''] before:bg-black dark:before:bg-white before:absolute before:top-[-2px] before:h-px before:w-0 hover:before:w-full" :class="{ 'before:w-full': isActive }">
-      <h4 class="menu-heading text-black dark:text-white font-bold">{{ heading }}</h4>
+  <div
+    class="before:transition-all before:content=[''] before:bg-black dark:before:bg-white before:absolute before:top-[-2px] before:h-px before:w-0 hover:before:w-full"
+    :class="{ 'before:w-full': isActive }"
+  >
+    <h4 class="menu-heading text-black dark:text-white font-bold">
+      {{ heading }}
+    </h4>
   </div>
 </template>
 <script>
@@ -16,9 +21,8 @@ export default {
   computed: {
     ...mapStores(useActiveSectionStore),
     isActive() {
-     return this.sectionStore.section === this.to;
+      return this.sectionStore.section === this.to;
     },
   },
 };
 </script>
-
