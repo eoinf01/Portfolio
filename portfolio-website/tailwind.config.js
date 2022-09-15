@@ -7,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage:{
-        'figma-stroke': 'url(/src/assets/stroke-figma.png)'
-      },
       colors:{
         'light-grey': 'rgb(212, 212, 212)',
         'tech-color': '#404040',

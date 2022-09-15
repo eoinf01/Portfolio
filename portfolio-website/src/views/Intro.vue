@@ -16,7 +16,7 @@
     </div>
     <div class="gradient absolute top-[30%] bottom-0 left-[35%] h-[45%] w-[35%] rounded-full" />
     <div class="flex flex-row opacity-0" id="button">
-      <a href="../assets/cv.pdf" download>
+      <a href="cv.pdf" download>
         <button
           class="bg-white text-black px-[15px] py-[10px] flex flex-row relative justify-center items-center cursor-pointer transition-all rounded-md ml-[5px] gap-[5px] before:content-[''] before:absolute before:top-[0px] before:bottom-[0px] before:left-[0px] before:right-[0px] before:bg-gradient-to-r before:from-cyan-500 before:to-blue-500 before:transition-all before:rounded-md after:content-[''] after:absolute after:bg-black after:top-[1px] after:bottom-[1px] after:left-[1px] after:right-[1px] after:rounded-md hover:after:bottom-[2px] hover:after:right-[2px] hover:after:left-[2px] hover:after:top-[2px] after:transition-all hover:after:bg-[#212121]">
           <p class="text-white mix-blend-difference z-[2] text-lg">Resume</p>

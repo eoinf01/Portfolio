@@ -110,7 +110,7 @@
             </div>
             <div id="project" class="grid col-start-1 col-end-13 grid-cols-12 gap-5">
                 <div id="project-info"
-                    class="flex flex-col gap-[15px] transition-all duration-1000 rounded-md z-[2] col-start-1 col-end-13 bg-[#1a1a1a] rounded-md sm:col-end-7 m-auto hidden sm:flex opacity-0">
+                    class="flex flex-col gap-[15px] transition-all duration-100 rounded-md z-[2] col-start-1 col-end-13 bg-[#1a1a1a] rounded-md sm:col-end-7 m-auto hidden sm:flex opacity-0">
                     <div class="h-[25px] bg-mac-outer ">
                         <div class="flex h-full flex-row justify-start items-center gap-[10px] mx-[10px]">
                             <div class="h-[10px] w-[10px] rounded-full red" />
