@@ -66,7 +66,7 @@
           <ErrorMessage name="message" class="text-red-600 text-xs" />
         </div>
         <div
-          class="flex flex-row opacity-0 items-center justify-center mt-[30px]"
+          class="flex flex-row opacity-0 items-center mt-[30px] w-full justify-center items-center"
           id="button"
         >
           <button
@@ -89,10 +89,12 @@
         </div>
         <p class="button-error" id="error-message"></p>
       </Form>
+      
     </div>
   </section>
 </template>
 <script>
+import { VueRecaptcha } from 'vue-recaptcha';
 import emailjs from "@emailjs/browser";
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
@@ -112,6 +114,7 @@ export default {
     Form,
     Field,
     ErrorMessage,
+    VueRecaptcha
   },
   methods: {
     async handleEmail(values) {
