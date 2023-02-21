@@ -94,7 +94,6 @@
   </section>
 </template>
 <script>
-import { VueRecaptcha } from 'vue-recaptcha';
 import emailjs from "@emailjs/browser";
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
@@ -114,7 +113,6 @@ export default {
     Form,
     Field,
     ErrorMessage,
-    VueRecaptcha
   },
   methods: {
     async handleEmail(values) {

@@ -220,7 +220,7 @@ export default {
     },
     methods:{
         async getAllProjects() {
-            await axios.get(process.env.API_URL).then((res)=>{
+            await axios.get(import.meta.env.VITE_API_URL).then((res)=>{
                 this.fetchedProjects = res.data;
             }).catch((error)=>{
                 console.log(error)

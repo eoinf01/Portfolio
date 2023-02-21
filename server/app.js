@@ -9,7 +9,7 @@ const port = 3000 || process.env.PORT
 
 
 var corsOptions = {
-    origin: 'http://127.0.0.1:5173',
+    origin: 'http://127.0.0.1:5173' || process.env.ORIGIN_URL,
   }
 
 app.use(cors(corsOptions))
@@ -23,7 +23,6 @@ db.mongoose.connect(db.url)
 })
 
 app.use('/',router)
-app.use(express.static('../client/dist/'))
 
 app.listen(port, ()=>{
     console.log("Server running on port ", port)
