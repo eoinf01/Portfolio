@@ -7,10 +7,12 @@ const cors = require("cors")
 const path = __dirname + '/dist/'
 const port = 3000 || process.env.PORT
 
+const origins = process.env.ORIGIN_URL || ""
 
 var corsOptions = {
-    origin: 'http://127.0.0.1:5173' || process.env.ORIGIN_URL,
+    origin: origins.split(',').map(newOrigin=>newOrigin),
   }
+
 
 app.use(cors(corsOptions))
 
