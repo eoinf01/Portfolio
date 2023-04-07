@@ -6,15 +6,11 @@
     </h2>
     <div class="flex flex-col mt-[30px] gap-10 px-[10%] sm:px-[10%] sm:flex-row bg-[#0059dd] py-[5%]" id="about">
       <div id="left-about"
-        class="basis-full sm:basis-6/12 flex items-center flex-col justify-start bg-white rounded-md shadow-md shadow-[#3944c4] scale-0">
-        <div class="flex h-full relative basis-3/12 mt-[30px]">
-          <img class="object-cover w-[195px] h-[195px] rounded-full border-2 border-sky-500 scale-0"
-            src="../assets/IMG_0439.png" id="profile-pic" />
-        </div>
-        <div class="flex flex-col divide-y w-full px-[3%] py-[3%] lg:flex-row lg:divide-x lg:divide-y-0">
-          <div class="flex flex-col w-full gap-2 items-center p-[5%] opacity-0" id="left-content">
+        class="basis-full sm:basis-6/12 flex items-center flex-col justify-center p-[5%] bg-white rounded-md shadow-md shadow-[#3944c4] scale-0">
+        <div class="flex flex-col divide-y">
+          <div class="flex flex-col gap-5 items-center p-[5%] opacity-0" id="left-content">
             <h2 class="text-xl text-black">PERSONAL INFO</h2>
-            <div class="text-black flex flex-col justify-start items-start grow">
+            <div class="text-black flex flex-col justify-start items-start">
               <p class="text-left flex flex-row gap-2 items-center justify-center text-black">
                 <span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="fill-black" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
@@ -215,7 +211,6 @@ export default {
         scale: 1,
         ease: "power2.out()",
       })
-      .to("#profile-pic", { scale: 1, duration: 0.5, ease: "back.out(1.7)" })
       .to(leftContent, { opacity: 1 });
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="dark overflow-hidden">
-    <div class="flex flex-col w-full h-full bg-white dark:bg-[#030303]">
-      <div class="flex flex-col h-screen">
+    <div class="flex flex-col w-full h-full bg-white dark:bg-[#111111]">
+      <div class="flex flex-col h-screen bg-svg">
         <MenuHeader />
         <Intro />
       </div>
@@ -115,7 +115,7 @@ cursor {
 }
 
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Outfit', sans-serif;
   color: white;
   scroll-behavior: smooth;
   margin-block-start: 0px;

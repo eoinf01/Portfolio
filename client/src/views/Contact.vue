@@ -66,13 +66,15 @@
           <ErrorMessage name="message" class="text-red-600 text-xs" />
         </div>
         <div
-          class="flex flex-row opacity-0 items-center mt-[30px] w-full justify-center items-center"
+          class="flex flex-row items-center mt-[30px] w-full justify-center items-center"
           id="button"
         >
           <button
-            class="form-button bg-white text-black px-[40px] py-[10px] flex flex-row relative justify-center items-center cursor-pointer transition-all ml-[5px] gap-[5px] before:content-[''] before:absolute before:top-[0px] before:bottom-[0px] before:left-[0px] before:right-[0px] before:bg-gradient-to-r before:from-cyan-500 before:to-blue-500 before:transition-all after:content-[''] after:absolute after:bg-black after:top-[1px] after:bottom-[1px] after:left-[1px] after:right-[1px] hover:after:bottom-[2px] hover:after:right-[2px] hover:after:left-[2px] hover:after:top-[2px] after:transition-all hover:after:bg-[#212121]"
+            class="form-button bg-white px-[40px] py-[10px] flex flex-row relative justify-center items-center cursor-pointer transition-all ml-[5px] gap-[5px] before:content-[''] before:absolute before:top-[0px] before:bottom-[0px] before:left-[0px] before:right-[0px] before:bg-gradient-to-r before:from-cyan-500 before:to-blue-500 before:transition-all after:content-[''] after:absolute after:bg-black after:top-[1px] after:bottom-[1px] after:left-[1px] after:right-[1px] hover:after:bottom-[2px] hover:after:right-[2px] hover:after:left-[2px] hover:after:top-[2px] after:transition-all hover:after:bg-[#212121]"
           >
-            <span class="button-text z-[2]" id="button-text">Send</span>
+          <div class="button-loader z-[20]" id="button-loader" v-if="isLoading"></div>
+          <div class="flex flex-row z-[20]" :class="{invisible: isLoading}">
+            <span id="button-text">Send</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -85,6 +87,7 @@
                 clip-rule="evenodd"
               />
             </svg>
+          </div>
           </button>
         </div>
         <p class="button-error" id="error-message"></p>
@@ -97,7 +100,6 @@
 import emailjs from "@emailjs/browser";
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-
 export default {
   data() {
     const emailSchema = yup.object({
@@ -105,8 +107,10 @@ export default {
       reply_to: yup.string().required().email().label("Email address"),
       message: yup.string().required().label("Message"),
     });
+    let isLoading = false;
     return {
       emailSchema,
+      isLoading,
     };
   },
   components: {
@@ -117,9 +121,8 @@ export default {
   methods: {
     async handleEmail(values) {
       var text = document.getElementById("button-text");
-      var button = document.getElementsByClassName("form-button")[0];
       var message = document.getElementById("error-message");
-      button.classList.add("button-loading");
+      this.isLoading = !this.isLoading;
       await emailjs
         .sendForm(
           "service_hays1go",
@@ -128,16 +131,13 @@ export default {
           "2Om7pSy2Y6_rpXg2U"
         )
         .then((result) => {
-          let sound = new Audio("src/assets/sent.wav");
-          sound.play();
-          console.log(result);
-          button.classList.remove("button-loading");
+          this.isLoading = !this.isLoading;
           text.innerText = "Sent!";
         })
         .catch((error) => {
+          this.isLoading = !this.isLoading;
           console.log(error);
           setTimeout(() => {
-            button.classList.remove("button-loading");
             message.innerText = "Error occured. Please try again.";
           }, 1500);
         });
@@ -158,11 +158,7 @@ export default {
   background-blend-mode: color-dodge, color-burn, color-burn, normal;
 }
 
-.button-loading .button-text {
-  visibility: hidden;
-}
-
-.form-button.button-loading::after {
+.button-loader::after {
   content: "";
   position: absolute;
   width: 16px;
@@ -178,9 +174,6 @@ export default {
   bottom: 0;
   margin: auto;
   animation: loader 1s linear 0s infinite;
-}
-
-.form-button::after {
 }
 
 .button-error {

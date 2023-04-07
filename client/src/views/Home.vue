@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col grow">
+  <div class="flex flex-col grow bg-svg">
     <About />
     <Projects ref="projects" />
     <Contact />
@@ -63,7 +63,7 @@ export default {
 </script>
 <style>
 * {
-  font-family: "JetBrains Mono", sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 p {
@@ -88,7 +88,6 @@ p {
 
 h3 {
   margin-top: -10px;
-  font-family: "Montserrat", sans-serif;
   position: relative;
   font-weight: 300;
   padding: 0px 4px 0px 0px;

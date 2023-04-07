@@ -9,7 +9,7 @@ import { VitePluginFonts } from "vite-plugin-fonts";
 export default defineConfig({
   plugins: [vue(), vueJsx(),VitePluginFonts({
     google: {
-      families: ['Poppins'],
+      families: ['Outfit'],
     },
   }),],
   resolve: {
