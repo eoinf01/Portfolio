@@ -222,7 +222,7 @@ export default {
     },
     methods: {
         async getAllProjects() {
-            await axios.get("http://127.0.0.1:8080/api").then((res) => {
+            await axios.get(import.meta.env.VITE_API_URL).then((res) => {
                 this.fetchedProjects = res.data;
             }).catch((error) => {
                 console.log(error)
