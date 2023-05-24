@@ -136,8 +136,7 @@
                                 </p>
                             </a>
                         </div>
-                        <p class="text-sm">An android application to check the forecast cities around the world. The
-                            application gives a 5 day forecast for each added city. Dark mode also included.</p>
+                        <p class="text-sm">{{ project.description }}</p>
                         <h4 class="text-white font-bold text-md">
                             Technologies
                         </h4>
