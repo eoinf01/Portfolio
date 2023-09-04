@@ -54,7 +54,7 @@
           <div
             class="flex flex-row bg-white items-center w-full gap-2 rounded-md p-[4%] shadow-xl border border-1 opacity-0"
             id="container">
-            <img src="../assets/mtu.jpeg" class="border border-2 h-[50px] w-[50px] rounded-md" />
+            <img src="../assets/mtu.webp" class="border border-2 h-[50px] w-[50px] rounded-md" alt="MTU Logo"/>
             <div class="flex flex-col">
               <h2 class="font-bold text-black">Present</h2>
               <h2 class="text-black">Software Development at MTU</h2>
@@ -65,7 +65,7 @@
           <h2 class="text-xl text-black opacity-0" id="titles">Work</h2>
           <div class="relative w-full flex flex-row items-center gap-5 opacity-0" id="container">
             <div class="flex flex-row bg-white items-center gap-2 rounded-md p-[4%] shadow-xl border grow border-1">
-              <img src="../assets/tanzu.png" class="border border-2 h-[50px] w-[50px] rounded-md p-[5px]" />
+              <img src="../assets/tanzu-op.png" class="border border-2 h-[50px] w-[50px] rounded-md p-[5px]" alt="Tanzu logo"/>
               <div class="flex flex-col">
                 <h2 class="font-bold text-black">2022</h2>
                 <h2 class="text-black">

@@ -35,7 +35,7 @@ export default {
     intersectCallback() {
       const sectionCallback = (entries) => {
         entries.forEach((element) => {
-          if (element.isIntersecting) {
+          if (element.isIntersecting & element.target.id !== this.sectionStore.section) {
             this.sectionStore.section = element.target.id;
           }
         });

@@ -5,7 +5,7 @@
     
     <div class="flex flex-col justify-center items-center self-center text-xl gap-4 sm:text-3xl transition-all">
           <img class="object-cover w-[195px] h-[195px] rounded-full scale-0"
-            src="../assets/IMG_0439.png" id="profile-pic" />
+            src="../assets/IMG_0439.webp" srcset="../assets/IMG_0439.webp, ../assets/IMG_0439.png" id="profile-pic" alt="Portfolio Owner's Profile Image"/>
           <p class="text-sm text-my-grey-100">Hi, I'm Eoin!</p>
           <h3 id="subIntro"
           class="opacity-0 text-center max-w-sm sm:max-w-md lg:max-w-xl">

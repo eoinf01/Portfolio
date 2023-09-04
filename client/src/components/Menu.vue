@@ -92,7 +92,7 @@ export default {
       element.addEventListener("click", ()=> this.handleMenuOpen());
     });
     mobileToggle.addEventListener("click", () => this.handleMenuOpen());
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", ()=>this.handleScroll());
     window.addEventListener("resize", ()=> this.menuHeight = this.$refs.menu.offsetHeight);
   },
 };
